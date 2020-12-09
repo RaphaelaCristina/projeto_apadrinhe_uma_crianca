@@ -16,5 +16,14 @@
     "nodemon": "^2.0.6"
   },
   "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaphaelaCristina/projeto_apadrinhe_uma_crianca.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RaphaelaCristina/projeto_apadrinhe_uma_crianca/issues"
+  },
+  "homepage": "https://github.com/RaphaelaCristina/projeto_apadrinhe_uma_crianca#readme",
+  "keywords": [],
   "description": ""
 }

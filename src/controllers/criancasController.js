@@ -112,17 +112,33 @@ const getById = (request, response) => {
 
 //POST CRIANCA
 const addCrianca = (request, response) => {
-    const criancaDoBody = request.body //pegando criança do Body
-    const crianca = new criancasCollection(criancaDoBody) //criando um novo dado
+    const idParam = request.params.id
+    const responsavel = request.body
+    const nome = request.body
+    const idade = request.body
+    const telefone = request.body
+    const presente = request.body
+    const estado = request.body
+    const cidade = request.body
+    const apadrinhada = request.body
+    const padrinho = request.body
+    const madrinha = request.body
+    const novo = {new: true}
 
-    crianca.save((error)=>{
+    criancasCollection.findByIdAndUpdate(idParam, responsavel, nome, idade, telefone, presente, estado, cidade, apadrinhada, padrinho, madrinha, novo, (error, crianca)=>{
         if(error){
-            return response.status(500).send(error)
-        } else {
-            return response.status(200).send({
-                mensagem: "Criança cadastrada com sucesso",
-                crianca
-            })
+            response.status(500).send(error)
+        }else {
+            if (crianca == ""){
+                response.status(404).send({
+                    mensagem: "ID não encontrado!"
+                })
+            } else {
+                return response.status(200).send({
+                    mensagem: "Informação(ões) atualizada(s) com sucesso!",
+                    crianca
+                })
+            }
         }
     })
 }
@@ -150,15 +166,7 @@ const deleteID = (request, response) => {
 const patchItem = (request, response) => { 
     const idParams = request.params.id
 
-    criancasCollection.findById({id: idParams}, (error, crianca)=>{
-        if (error){
-            response.status(500).send(error)
-        } else {
-            if (crianca){
-                crianca.update
-            }
-        }
-    })
+   
 }
    
 
