@@ -7,7 +7,7 @@ const getAll = (request, response) => {
 
     criancasCollection.find((error, criancas) => {
         if(error){
-          return  response.status(500).send(error)
+          return  response.status(400).send(error)
         }else {
             return response.status(200).send({
                 mensagem: "Lista de todas as crianças cadastradas no projeto",
@@ -25,7 +25,7 @@ const getNaoApadrinhadas = (request, response) => {
    
     criancasCollection.find({apadrinhada:"false"},(error,crianca)=>{
       if (error){
-        return response.status(500).send(error)
+        return response.status(400).send(error)
       } else if (crianca == "") {
             return response.status(404).send("Não existem crianças para serem apadrinhadas")
            
@@ -48,7 +48,7 @@ const getPorEstado = (request, response) => {
     
     criancasCollection.find({estado:{$eq:estadoParams}, apadrinhada: {$eq:false}},(error, crianca)=>{
         if (error){
-            return response.status(500)
+            return response.status(400)
             if (crianca == ""){
                 response.status(404).send({
                     mensagem: "Não existem crianças para ser apadrinhadas no estado escolhido."
@@ -71,7 +71,7 @@ const getPorCidade = (request, response) => {
     
     criancasCollection.find({cidade:{$eq:cidadeParams}, apadrinhada: {$eq: false}},(error, crianca)=>{
         if (error){
-            return response.status(500).send(error)
+            return response.status(400).send(error)
         } else {
             if (crianca == ""){
                 response.status(404).send({
@@ -94,7 +94,7 @@ const getById = (request, response) => {
     idParams = request.query.id
    criancasCollection.findById(idParams,(error, crianca)=>{
         if(error){
-            return response.status(500).send(error)
+            return response.status(400).send(error)
         }else {
             if(crianca == ""){
                 return response.status(404).send({
@@ -115,9 +115,16 @@ const getById = (request, response) => {
 const addCrianca = (request, response) => {
     const {nome, responsavel, idade, telefone, presente, estado, cidade, apadrinhada} = request.body
     const novaCrianca = new criancasCollection(request.body)
-    response.status(200).send({
-        mensagem: "POST realizado com sucesso",
-        novaCrianca
+    
+    novaCrianca.save((error)=> {
+        if(error){
+            return response.status(400).send(error)
+        } else {
+            return response.status(200).send({
+                mensagem: "POST realizado com sucesso.",
+                novaCrianca
+            })
+        }
     })
     
 }
@@ -128,7 +135,7 @@ const deleteID = (request, response) => {
     idParam = request.params.id
     criancasCollection.findByIdAndDelete(idParam, (error,crianca)=>{
         if(error){
-            return response.status(500).send(error)
+            return response.status(400).send(error)
         } else {
             if(crianca){
                 return response.status(200).send("Criança deletada com sucesso!")
@@ -149,7 +156,7 @@ const patchItem = (request, response) => {
 
     criancasCollection.findByIdAndUpdate(idParam, criancaDoBody, novo, (error, crianca)=>{
         if(error){
-            response.status(500).send(error)
+            response.status(400).send(error)
         }else {
             if (crianca == ""){
                 response.status(404).send({
