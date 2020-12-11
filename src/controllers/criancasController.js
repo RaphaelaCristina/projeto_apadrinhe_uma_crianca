@@ -46,7 +46,7 @@ const getNaoApadrinhadas = (request, response) => {
 const getPorEstado = (request, response) => {
     const estadoParams = request.query.estado
     
-    criancasCollection.find({estado:{$eq:estadoParams}, apadrinhada: {$eq: false}},(error, crianca)=>{
+    criancasCollection.find({estado:{$eq:estadoParams}, apadrinhada: {$eq:false}},(error, crianca)=>{
         if (error){
             return response.status(500)
             if (crianca == ""){
@@ -103,7 +103,8 @@ const getById = (request, response) => {
             } else {
                 return response.status(200).send({
                     mensagem: "GET realizado com sucesso",
-                    crianca})
+                    crianca
+                })
             }
         }
     })
@@ -112,18 +113,11 @@ const getById = (request, response) => {
 
 //POST CRIANCA
 const addCrianca = (request, response) => {
-    criancaDoBody = request.boy //pegando criança do body
-    const crianca = new criancasCollection(criancaDoBody)
-
-    crianca.save((error)=>{
-        if(error){
-            return response.status(500).send(error)
-        } else {
-            return response.status(200).send({
-                mensagem: "Criança atualizada com sucesso",
-                crianca
-            })
-        }
+    const {nome, responsavel, idade, telefone, presente, estado, cidade, apadrinhada} = request.body
+    const novaCrianca = new criancasCollection(request.body)
+    response.status(200).send({
+        mensagem: "POST realizado com sucesso",
+        novaCrianca
     })
     
 }
@@ -150,19 +144,10 @@ const deleteID = (request, response) => {
 
 const patchItem = (request, response) => { 
     const idParam = request.params.id
-    const responsavel = request.body
-    const nome = request.body
-    const idade = request.body
-    const telefone = request.body
-    const presente = request.body
-    const estado = request.body
-    const cidade = request.body
-    const apadrinhada = request.body
-    const padrinho = request.body
-    const madrinha = request.body
+    const criancaDoBody = request.body
     const novo = {new: true}
 
-    criancasCollection.findByIdAndUpdate(idParam, responsavel, nome, idade, telefone, presente, estado, cidade, apadrinhada, padrinho, madrinha, novo, (error, crianca)=>{
+    criancasCollection.findByIdAndUpdate(idParam, criancaDoBody, novo, (error, crianca)=>{
         if(error){
             response.status(500).send(error)
         }else {
@@ -176,7 +161,7 @@ const patchItem = (request, response) => {
                     crianca
                 })
             }
-        }
+        }   
     })
 
    
