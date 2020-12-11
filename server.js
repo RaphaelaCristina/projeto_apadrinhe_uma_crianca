@@ -7,7 +7,7 @@ const app = express();
 
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/projeto"
 
-const PORT = process.env.PORT || 800;
+const PORT = process.env.PORT || 900;
 
 const index = require('./src/routes/index');
 const criancas = require('./src/routes/criancas');
