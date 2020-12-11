@@ -44,18 +44,19 @@ const getNaoApadrinhadas = (request, response) => {
 //GET POR ESTADO
 
 const getPorEstado = (request, response) => {
-    const estadoParams = request.query.estado
+    const estadoParams = request.query.cidade
     
-    criancasCollection.find({estado:{$eq:estadoParams}, apadrinhada: {$eq:false}},(error, crianca)=>{
+    criancasCollection.find({cidade:{$eq:estadoParams}, apadrinhada: {$eq: false}},(error, crianca)=>{
         if (error){
-            return response.status(400)
+            return response.status(400).send(error)
+        } else {
             if (crianca == ""){
                 response.status(404).send({
                     mensagem: "Não existem crianças para ser apadrinhadas no estado escolhido."
                 })
             } else {
                 response.status(200).send({
-                    mensagem: "Lista de crianças para serem apadrinhadas no estado escolhido: ",
+                    mensagem: "Lista de crianças para serem apadrinhadas no estado escolhido:  ",
                     crianca
                 })
             }
