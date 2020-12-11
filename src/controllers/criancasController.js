@@ -114,7 +114,8 @@ const getById = (request, response) => {
 //POST CRIANCA
 const addCrianca = (request, response) => {
     const {nome, responsavel, idade, telefone, presente, estado, cidade, apadrinhada} = request.body
-    const novaCrianca = new criancasCollection(request.body)
+    const crianca = request.body
+    const novaCrianca = new criancasCollection(crianca)
     
     novaCrianca.save((error)=> {
         if(error){
