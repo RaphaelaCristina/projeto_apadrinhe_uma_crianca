@@ -1,2 +1,2 @@
 
-<img src="/img/logo.png" width="100" height="350" hspace="20"/> 
+<div id="ladoalado"><img src="img/login.png"><img src="img/reprograma.png"></div> 
