@@ -1,2 +1,3 @@
+# APADRINHE UMA CRIANÇA
 
-<div id="ladoalado"> <img src = "img/logo.png"> <img src="img/reprograma.png"></div> 
+ <img src = "img/logo.png" width="410"> <img src="img/reprograma.png" width="410"></div> 
