@@ -12,11 +12,11 @@ Este projeto visa conectar padrinho/madrinha e criança/família através de um 
 
 
 ## Ferramentas e Dependências utilizadas:
-:green_square: Nodemoon
-:green_square: Express
-:green_square: Cors
-:green_square: Dotenv
-:green_square: Mongoose
-:green_square: MongoDB
-:green_square: Visual Studio Code
-:green_square: Npm
+- :green_square: Nodemoon
+- :green_square: Express
+- :green_square: Cors
+- :green_square: Dotenv
+- :green_square: Mongoose
+- :green_square: MongoDB
+- :green_square: Visual Studio Code
+- :green_square: Npm
