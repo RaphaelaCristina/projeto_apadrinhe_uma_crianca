@@ -10,6 +10,6 @@ router.get('/cidade', controller.getPorCidade)
 router.get('/id',controller.getById)
 router.post('/cadastrar',controller.addCrianca)
 router.delete('/deletar/:id',controller.deleteID)
-router.patch('/atualizar',controller.patchItem)
+router.patch('/atualizar/:id',controller.patchItem)
 
 module.exports = router;

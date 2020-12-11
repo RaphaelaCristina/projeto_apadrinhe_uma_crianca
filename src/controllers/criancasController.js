@@ -112,6 +112,43 @@ const getById = (request, response) => {
 
 //POST CRIANCA
 const addCrianca = (request, response) => {
+    criancaDoBody = request.boy //pegando criança do body
+    const crianca = new criancasCollection(criancaDoBody)
+
+    crianca.save((error)=>{
+        if(error){
+            return response.status(500).send(error)
+        } else {
+            return response.status(200).send({
+                mensagem: "Criança atualizada com sucesso",
+                crianca
+            })
+        }
+    })
+    
+}
+
+
+//DELETAR POR ID
+const deleteID = (request, response) => {
+    idParam = request.params.id
+    criancasCollection.findByIdAndDelete(idParam, (error,crianca)=>{
+        if(error){
+            return response.status(500).send(error)
+        } else {
+            if(crianca){
+                return response.status(200).send("Criança deletada com sucesso!")
+            } else {
+                return response.status(404).send("Criança não encontrada, verifique o ID e tente novamente.")
+            }
+        }
+    })
+}
+
+//GET UPDATE - patch
+//atualização parcial
+
+const patchItem = (request, response) => { 
     const idParam = request.params.id
     const responsavel = request.body
     const nome = request.body
@@ -141,30 +178,6 @@ const addCrianca = (request, response) => {
             }
         }
     })
-}
-
-
-//DELETAR POR ID
-const deleteID = (request, response) => {
-    idParam = request.params.id
-    criancasCollection.findByIdAndDelete(idParam, (error,crianca)=>{
-        if(error){
-            return response.status(500).send(error)
-        } else {
-            if(crianca){
-                return response.status(200).send("Criança deletada com sucesso!")
-            } else {
-                return response.status(404).send("Criança não encontrada, verifique o ID e tente novamente.")
-            }
-        }
-    })
-}
-
-//GET UPDATE - patch
-//atualização parcial
-
-const patchItem = (request, response) => { 
-    const idParams = request.params.id
 
    
 }
