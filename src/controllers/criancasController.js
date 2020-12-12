@@ -44,7 +44,7 @@ const getNaoApadrinhadas = (request, response) => {
 //GET POR ESTADO
 
 const getPorEstado = (request, response) => {
-    const estadoParams = request.query.cidade
+    const estadoParams = request.query.estado
 
    
     criancasCollection.find({cidade:{$eq:estadoParams}, apadrinhada: {$eq: false}},(error, crianca)=>{
