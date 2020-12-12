@@ -45,8 +45,20 @@ const getNaoApadrinhadas = (request, response) => {
 
 const getPorEstado = (request, response) => {
     const estadoParams = request.query.cidade
+
+    function removeAcento (estadoParams)
+{       
+    estadoParams = estadoParams.toLowerCase();                                                         
+    estadoParams = estadoParams.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
+    estadoParams = estadoParams.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
+    estadoParams = estadoParams.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
+    estadoParams = estadoParams.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
+    estadoParams = estadoParams.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
+    estadoParams = estadoParams.replace(new RegExp('[Ç]','gi'), 'c');
+    return estadoParams;                 
+}
     
-    criancasCollection.find({cidade:{$eq:estadoParams}, apadrinhada: {$eq: false}},(error, crianca)=>{
+    criancasCollection.find({cidade:{$eq:removeAcento(estadoParams)}, apadrinhada: {$eq: false}},(error, crianca)=>{
         if (error){
             return response.status(400).send(error)
         } else {
