@@ -36,7 +36,7 @@ Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/
 Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/cadastrar
 
 Exemplo de Postagem:
-'''
+```
 {
     "responsavel": "Raphaela C O Britto",
     "nome": "Ekundayo O Ogumbiyi Bueno",  
@@ -47,7 +47,7 @@ Exemplo de Postagem:
     "cidade":"Guarulhos",
     "apadrinhada": false
 }
-'''
+```
 
 ### getAll 
 Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas
@@ -60,13 +60,13 @@ Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/lista
 Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/estado
 
 Exemplo:  
-<img src = "img/getPorEstado.png" width="410"> 
+<img src = "img/getPorEstado.png" width="100"> 
 
 ## getPorEstado
 Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/cidade
 
 Exemplo:  
-<img src = "img/getPorCidade.png" width="410"> 
+<img src = "img/getPorCidade.png" > 
 
 ## deletarCrianca
 Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/deletar/:id
@@ -77,7 +77,7 @@ Obs: inserir o ID desejado na rota
 Rota https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/id
 
 Exemplo:  
-<img src = "img/getById.png" width="410"> 
+<img src = "img/getById.png" > 
 
 ## patchItem
 Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/atualizar/
@@ -85,7 +85,8 @@ Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/atualizar/
 Obs: inserir o ID desejado na rota 
 
 Exemplo de atualização de itens:
-<img src = "img/patchItem.png" width="410"> 
+
+<img src = "img/patchItem.png" > 
 
 ## Link do projeto no heroku
 https://projeto-apadrinhe-uma-crianca.herokuapp.com/
