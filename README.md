@@ -1,7 +1,6 @@
- <img src = "img/logo.png" width="410"> 
+ <img src = "img/logo.png" > 
 
  ## Descrição:
-  
 Segundo dados fornecidos pelo IBGE, cerca de 25,3% da população brasileira se enquadra na condição de pobreza, o que equivale a 52,5 milhões de pessoas. Outros 6,5%, o equivalente a 13,5 milhões estão na linha de extrema pobreza (aqueles que têm renda de aproximadamente R$ 7,70) por dia.
 Tendo em vista o cenário apresentado e pensando nas crianças que também compartilham dessa realidade e que muitas vezes gostariam de receber um presente, um item específico, etc. e pessoas que tem intenção de ajudá-las, mas que não sabem por onde começar, foi desenvolvido o projeto APADRINHE UMA CRIANÇA.
 
@@ -60,7 +59,7 @@ Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/lista
 Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/estado
 
 Exemplo:  
-<img src = "img/getPorEstado.png" width="100"> 
+<img src = "img/getPorEstado.png" > 
 
 ## getPorEstado
 Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/cidade
