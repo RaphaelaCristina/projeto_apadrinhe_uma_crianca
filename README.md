@@ -21,3 +21,77 @@ Este projeto visa conectar padrinho/madrinha e criança/família através de um 
 - :green_square: MongoDB
 - :green_square: Visual Studio Code
 - :green_square: Heroku
+
+## Aprendizados:
+Durante a realização do projeto, foram aplicados os conteúdos aprendidos ao longo das 18 semanas do curso
+de Backend na {Reprograma}.
+Alguns desses conceitos foram: Lógica de Programação, Banco de dados (MongoDB), Arquitetura MVC, CRUD, etc.
+
+## Instruções para utilização da API através do POSTMAN:
+
+### getIndex
+Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/
+
+### addCrianca - POST
+Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/cadastrar
+
+Exemplo de Postagem:
+'''
+{
+    "responsavel": "Raphaela C O Britto",
+    "nome": "Ekundayo O Ogumbiyi Bueno",  
+    "idade": "2",
+    "telefone": "123456788",
+    "presente":"Massinha",
+    "estado": "Sao Paulo",
+    "cidade":"Guarulhos",
+    "apadrinhada": false
+}
+'''
+
+### getAll 
+Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas
+
+
+### getNaoApadrinhadas
+Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/lista
+
+## getPorEstado
+Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/estado
+
+Exemplo:  
+<img src = "img/getPorEstado.png" width="410"> 
+
+## getPorEstado
+Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/cidade
+
+Exemplo:  
+<img src = "img/getPorCidade.png" width="410"> 
+
+## deletarCrianca
+Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/deletar/:id
+
+Obs: inserir o ID desejado na rota 
+
+## getById
+Rota https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/id
+
+Exemplo:  
+<img src = "img/getById.png" width="410"> 
+
+## patchItem
+Rota: https://projeto-apadrinhe-uma-crianca.herokuapp.com/criancas/atualizar/
+
+Obs: inserir o ID desejado na rota 
+
+Exemplo de atualização de itens:
+<img src = "img/patchItem.png" width="410"> 
+
+## Link do projeto no heroku
+https://projeto-apadrinhe-uma-crianca.herokuapp.com/
+
+
+
+
+
+
