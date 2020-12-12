@@ -1,4 +1,6 @@
- <img src = "img/logo.png" width="400" align=”center”> 
+<p align="center">
+ <img src = "img/logo.png"  width="400"> 
+</p>
 
  ## Descrição:
 Segundo dados fornecidos pelo IBGE, cerca de 25,3% da população brasileira se enquadra na condição de pobreza, o que equivale a 52,5 milhões de pessoas. Outros 6,5%, o equivalente a 13,5 milhões estão na linha de extrema pobreza (aqueles que têm renda de aproximadamente R$ 7,70) por dia.
