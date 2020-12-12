@@ -1,5 +1,3 @@
-# APADRINHE UMA CRIANÇA
-
  <img src = "img/logo.png" width="410"> 
 
  ## Descrição:
@@ -17,6 +15,9 @@ Este projeto visa conectar padrinho/madrinha e criança/família através de um 
 - :green_square: Cors
 - :green_square: Dotenv
 - :green_square: Mongoose
+- :green_square: Npm
+- :green_square: Git
+- :green_square: Github
 - :green_square: MongoDB
 - :green_square: Visual Studio Code
-- :green_square: Npm
+- :green_square: Heroku
