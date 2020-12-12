@@ -132,7 +132,7 @@ const addCrianca = (request, response) => {
                     
     }
 
-    const adcCrianca = removeAcento(crianca)
+    const adcCrianca = removeAcento(request.body)
 
     const novaCrianca = new criancasCollection(adcCrianca)
     
