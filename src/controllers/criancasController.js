@@ -55,10 +55,13 @@ const getPorEstado = (request, response) => {
     estadoParams = estadoParams.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
     estadoParams = estadoParams.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
     estadoParams = estadoParams.replace(new RegExp('[Ç]','gi'), 'c');
-    return estadoParams;                 
+    return estadoParams;     
+                
 }
+
+const estados = removeAcento(estadoParams)
     
-    criancasCollection.find({cidade:{$eq:removeAcento(estadoParams)}, apadrinhada: {$eq: false}},(error, crianca)=>{
+    criancasCollection.find({cidade:{$eq:estados}, apadrinhada: {$eq: false}},(error, crianca)=>{
         if (error){
             return response.status(400).send(error)
         } else {
