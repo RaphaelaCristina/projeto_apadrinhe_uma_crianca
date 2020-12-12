@@ -118,23 +118,7 @@ const addCrianca = (request, response) => {
 
     const {nome, responsavel, idade, telefone, presente, estado, cidade, apadrinhada} = request.body
     const crianca = request.body
-
-    function removeAcento (crianca)
-    {       
-        crianca = crianca.toLowerCase();                                                         
-        crianca = crianca.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
-        crianca = crianca.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
-        crianca = crianca.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
-        crianca = crianca.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
-        crianca = crianca.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
-        crianca = crianca.replace(new RegExp('[Ç]','gi'), 'c');
-        return crianca;     
-                    
-    }
-
-    const adcCrianca = removeAcento(request.body)
-
-    const novaCrianca = new criancasCollection(adcCrianca)
+    const novaCrianca = new criancasCollection(crianca)
     
     novaCrianca.save((error)=> {
         if(error){
