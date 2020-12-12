@@ -46,22 +46,8 @@ const getNaoApadrinhadas = (request, response) => {
 const getPorEstado = (request, response) => {
     const estadoParams = request.query.cidade
 
-    function removeAcento (estadoParams)
-{       
-    estadoParams = estadoParams.toLowerCase();                                                         
-    estadoParams = estadoParams.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
-    estadoParams = estadoParams.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
-    estadoParams = estadoParams.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
-    estadoParams = estadoParams.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
-    estadoParams = estadoParams.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
-    estadoParams = estadoParams.replace(new RegExp('[Ç]','gi'), 'c');
-    return estadoParams;     
-                
-}
-
-const estados = removeAcento(estadoParams)
-    
-    criancasCollection.find({cidade:{$eq:estados}, apadrinhada: {$eq: false}},(error, crianca)=>{
+   
+    criancasCollection.find({cidade:{$eq:estadoParams}, apadrinhada: {$eq: false}},(error, crianca)=>{
         if (error){
             return response.status(400).send(error)
         } else {
@@ -129,9 +115,25 @@ const getById = (request, response) => {
 
 //POST CRIANCA
 const addCrianca = (request, response) => {
+
     const {nome, responsavel, idade, telefone, presente, estado, cidade, apadrinhada} = request.body
     const crianca = request.body
-    const novaCrianca = new criancasCollection(crianca)
+
+    const adcCrianca = function removeAcento (crianca)
+    {       
+        crianca = crianca.toLowerCase();                                                         
+        crianca = crianca.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
+        crianca = crianca.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
+        crianca = crianca.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
+        crianca = crianca.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
+        crianca = crianca.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
+        crianca = crianca.replace(new RegExp('[Ç]','gi'), 'c');
+        return crianca;     
+                    
+    }
+
+
+    const novaCrianca = new criancasCollection(adcCrianca)
     
     novaCrianca.save((error)=> {
         if(error){
